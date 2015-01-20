@@ -77,9 +77,11 @@ public class JDBCController {
 					atri.add(rs.getString(1)); // Speichern der Atribute
 					if(rs.getString(4).equals("PRI")){ // Ueberpruefen ob PK.
 						primary.add(rs.getString(1));
+						//rs = meta.getPrimaryKeys(null,null,tabname);
 					}
 					if(rs.getString(4).equals("MUL")){ // Ueberpruefen ob FK.
 						foreign.add(rs.getString(1));
+						//rs = meta.getExportedKeys(null, null, tabname);
 					}
 				}
 				
@@ -93,5 +95,27 @@ public class JDBCController {
 			e.printStackTrace();
 		}
 		return tables;
+	}
+	
+	/**
+	 * Macht ein Relationenmodel
+	 * @param tables die Tabellen die ausgegeben werden sollen
+	 * @return sinnvolle Ausgabe der Attribute geordnet nach Tabellen
+	 */
+	public String getRM(ArrayList<Table> tables){
+		String txt = "";
+		for(int i=0;i<tables.size();i++) {
+			txt+=tables.get(i).getName()+"("; 
+			for(int j=0;j<tables.get(i).getAttribute().size();j++){
+				if(j==tables.get(i).getAttribute().size()-1){
+					txt+=""+tables.get(i).getAttribute().get(j);
+					
+				}else{
+					txt+=""+tables.get(i).getAttribute().get(j)+", ";
+				}
+			}
+			txt+=")\n";
+		}
+		return txt;
 	}
 }
