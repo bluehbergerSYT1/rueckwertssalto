@@ -11,6 +11,12 @@ import java.io.File;
  */
 import java.util.ArrayList;
 
+/**
+ * Start/Main Klasse des Rückwärtssalto Beispiels.
+ * Stellt Verbindung zur Datenbank her und erstellt ein RM.
+ * @author lukaszainzinger
+ * @version 2015-01-11
+ */
 public class Start {
 	public static void main (String[] args){
 		   if(args.length==0){
