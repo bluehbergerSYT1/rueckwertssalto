@@ -22,7 +22,7 @@ public class Start {
 		   if(args.length==0){
 
 			}
-			String server = "localhost", benutzer="root", passwort="Abc1234", datenbank = "agentenspiel";
+			String server = "localhost", benutzer="root", passwort="Abc1234", datenbank = "agentenspiel"; //Hardcoded muss noch geändert werden
 			for(int i = 0; i < args.length; i++){
 				switch(args[i]){
 				case("-h"):
@@ -44,9 +44,9 @@ public class Start {
 
 				}
 			}
-			JDBCController control = new JDBCController(server,benutzer,passwort,datenbank);
-			ArrayList<Table> tables= control.getData();
-			String rm = control.getRM(tables);
+			JDBCController control = new JDBCController(server,benutzer,passwort,datenbank); //Erstellen des JDBC Controllers für die Verbindung
+			ArrayList<Table> tables= control.getData(); // Daten Abfragen
+			String rm = control.getRM(tables); //RM erstellen
 			System.out.println(rm);
 			
 	   }

@@ -25,6 +25,9 @@ public class JDBCController {
 	private String benutzer;
 	private String passwort;
 	private String datenbank;
+	private ArrayList<String> atri = new ArrayList<String>();
+	private ArrayList<String> primary = new ArrayList<String>();
+	private ArrayList<String> foreign = new ArrayList<String>();//Fremdschlüssel
 	
 	/**
 	 * Konstruktor von Controller
@@ -54,9 +57,10 @@ public class JDBCController {
 
 		try {
 			Connection con = ds.getConnection();
+			java.sql.DatabaseMetaData meta = con.getMetaData();
 			// Abfrage vorbereiten und ausfuÌhren
 			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery("show tables;");
+			ResultSet rs = st.executeQuery("show tables;"); //Wird noch geändert -> MetaData
 	
 			while (rs.next()) { // Cursor bewegen
 				Table t = new Table();
@@ -74,14 +78,14 @@ public class JDBCController {
 
 				while(rs.next()){
 
-					atri.add(rs.getString(1)); // Speichern der Atribute
 					if(rs.getString(4).equals("PRI")){ // Ueberpruefen ob PK.
-						primary.add(rs.getString(1));
+						primary.add("<<PK>>" + rs.getString(1));
 						//rs = meta.getPrimaryKeys(null,null,tabname);
-					}
-					if(rs.getString(4).equals("MUL")){ // Ueberpruefen ob FK.
-						foreign.add(rs.getString(1));
+					}else if(rs.getString(4).equals("MUL")){ // Ueberpruefen ob FK.
+						foreign.add("<<FK>> " + rs.getString(1));
 						//rs = meta.getExportedKeys(null, null, tabname);
+					}else{
+						atri.add(rs.getString(1)); // Speichern der Atribute
 					}
 				}
 				
@@ -106,10 +110,15 @@ public class JDBCController {
 		String txt = "";
 		for(int i=0;i<tables.size();i++) {
 			txt+=tables.get(i).getName()+"("; 
+			for(int j=0;j<tables.get(i).getPkey().size();j++){
+				txt += "" + tables.get(i).getPkey().get(j) + ", ";
+			}
+			for(int j=0;j<tables.get(i).getFkey().size();j++){
+				txt += "" + tables.get(i).getFkey().get(j)+ ", ";
+			}
 			for(int j=0;j<tables.get(i).getAttribute().size();j++){
-				if(j==tables.get(i).getAttribute().size()-1){
-					txt+=""+tables.get(i).getAttribute().get(j);
-					
+				if(j==tables.get(i).getAttribute().size()-1) {
+						txt+=""+tables.get(i).getAttribute().get(j);
 				}else{
 					txt+=""+tables.get(i).getAttribute().get(j)+", ";
 				}
