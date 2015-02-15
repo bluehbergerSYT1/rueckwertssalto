@@ -1,8 +1,8 @@
 # rueckwertssalto
 
 Anzeige als RM:
-  - Tabellennamen
-  - Attributnamen
+  - Tabellennamen   (FIN)
+  - Attributnamen   (FIN)
   - (Kardinalität anzeigen)
 
 Anzeige als EER:
