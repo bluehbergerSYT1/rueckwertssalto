@@ -1,6 +1,8 @@
 package bluehberger_zainziger;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 /**
  * Startet den Controller und nimmt Argumente auf die dem Control mitgeliefert werden. 
  * Argumentenliste
@@ -47,7 +49,17 @@ public class Start {
 			JDBCController control = new JDBCController(server,benutzer,passwort,datenbank); //Erstellen des JDBC Controllers für die Verbindung
 			ArrayList<Table> tables= control.getData(); // Daten Abfragen
 			String rm = control.getRM(tables); //RM erstellen
-			System.out.println(rm);
+			try {
+				control.write(rm);//Schreibt/Erstellt das RM als Textfile
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//System.out.println(rm); //Ausgabe des RMs in der Konsole
+			System.out.print("Programm Ende. Keine Fehler!");
 			
 	   }
 	}

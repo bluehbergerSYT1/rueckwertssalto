@@ -1,11 +1,9 @@
 package bluehberger_zainziger;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.mysql.jdbc.DatabaseMetaData;
@@ -15,7 +13,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
  * 
  * @author lukaszainzinger
  * @author gbluehberger
- * @version 2015-01-14
+ * @version 2015-02-15
  */
 
 
@@ -79,10 +77,10 @@ public class JDBCController {
 				while(rs.next()){
 
 					if(rs.getString(4).equals("PRI")){ // Ueberpruefen ob PK.
-						primary.add("<<PK>>" + rs.getString(1));
+						primary.add(rs.getString(1));
 						//rs = meta.getPrimaryKeys(null,null,tabname);
 					}else if(rs.getString(4).equals("MUL")){ // Ueberpruefen ob FK.
-						foreign.add("<<FK>> " + rs.getString(1));
+						foreign.add(rs.getString(1));
 						//rs = meta.getExportedKeys(null, null, tabname);
 					}else{
 						atri.add(rs.getString(1)); // Speichern der Atribute
@@ -111,10 +109,10 @@ public class JDBCController {
 		for(int i=0;i<tables.size();i++) {
 			txt+=tables.get(i).getName()+"("; 
 			for(int j=0;j<tables.get(i).getPkey().size();j++){
-				txt += "" + tables.get(i).getPkey().get(j) + ", ";
+				txt += "<<PK>>" + tables.get(i).getPkey().get(j) + ", ";
 			}
 			for(int j=0;j<tables.get(i).getFkey().size();j++){
-				txt += "" + tables.get(i).getFkey().get(j)+ ", ";
+				txt += "<<FK>>" + tables.get(i).getFkey().get(j)+ ", ";
 			}
 			for(int j=0;j<tables.get(i).getAttribute().size();j++){
 				if(j==tables.get(i).getAttribute().size()-1) {
@@ -126,5 +124,18 @@ public class JDBCController {
 			txt+=")\n";
 		}
 		return txt;
+	}
+	
+	/**
+	 * Erstellt ein Textfile im ausgeführtem Verzeichnis
+	 * @param rm Eine Textvariable, (das RM)
+	 * @return void
+	 * @throws UnsupportedEncodingException 
+	 * @throws FileNotFoundException 
+	 */
+	public void write(String rm) throws FileNotFoundException, UnsupportedEncodingException{
+		PrintWriter writer = new PrintWriter("rm.txt", "UTF-8");
+		writer.print(rm);
+		writer.close();
 	}
 }
