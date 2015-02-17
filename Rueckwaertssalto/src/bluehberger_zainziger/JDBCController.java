@@ -56,7 +56,7 @@ public class JDBCController {
 		try {
 			Connection con = ds.getConnection();
 			java.sql.DatabaseMetaData meta = con.getMetaData();
-			// Abfrage vorbereiten und ausfuÌhren
+			// Abfrage vorbereiten und ausführen
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery("show tables;"); //Wird noch geändert -> MetaData
 	

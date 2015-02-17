@@ -1,4 +1,5 @@
 package bluehberger_zainziger;
+import java.util.ArrayList;
 
 /**
  * Klasse zum Verwalten der Tabellennamen, Attribute und Schlüssel (PK sowie FK).
@@ -7,7 +8,6 @@ package bluehberger_zainziger;
  * @author gbluehberger
  * @version 2015-01-14
  */
-import java.util.ArrayList;
 
 public class Table {
 	private String name;

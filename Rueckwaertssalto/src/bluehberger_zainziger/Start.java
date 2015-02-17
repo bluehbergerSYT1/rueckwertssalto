@@ -59,7 +59,10 @@ public class Start {
 				e.printStackTrace();
 			}
 			//System.out.println(rm); //Ausgabe des RMs in der Konsole
-			System.out.print("Programm Ende. Keine Fehler!");
+			Zeichnen z = new Zeichnen();
+			File table = z.makeDotFile(tables);
+			z.zeichnen(table);
+			System.out.print("Programm Ende.");
 			
 	   }
 	}
