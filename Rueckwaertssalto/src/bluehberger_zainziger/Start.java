@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 public class Start {
 	public static void main (String[] args){
-		   if(args.length==0){
+		   if(args.length==0){ 
 
 			}
 			String server = "localhost", benutzer="root", passwort="Abc1234", datenbank = "agentenspiel"; //Hardcoded muss noch geändert werden
@@ -59,10 +59,11 @@ public class Start {
 				e.printStackTrace();
 			}
 			//System.out.println(rm); //Ausgabe des RMs in der Konsole
-			Zeichnen z = new Zeichnen();
-			File table = z.makeDotFile(tables);
-			z.zeichnen(table);
-			System.out.print("Programm Ende.");
+			Zeichnen z = new Zeichnen(); 
+			File table = z.makeDotFile(tables); //Erstellen .dot Files zum Erstellen des Diagramms 
+			z.zeichnen(table); //Diagramm Zeichnen
+			System.out.println("Programm Ende.");
+			System.out.println("Bei einem permission-Fehler führen Sie bitte den Befehl \n /usr/local/bin/neato -Tpng tables.dot -o EER.png \n im Verzichnis des erstellten .dot Files aus!");
 			
 	   }
 	}
