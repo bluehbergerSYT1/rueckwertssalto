@@ -1,0 +1,214 @@
+commit a88da948c345941aa5ff67e6efae7099a2fb6d0d
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Tue Feb 17 13:33:08 2015 +0100
+
+    Javadoc + jar v2
+    
+    Javadom im doc/Javadoc Verzeichnis
+    Programm gepackt als .jar (v2)
+
+ Rueckwaertssalto/doc/Javadoc/allclasses-frame.html |  37 ++
+ .../doc/Javadoc/allclasses-noframe.html            |  37 ++
+ .../bluehberger_zainziger/JDBCController.html      | 321 ++++++++++++++++
+ .../doc/Javadoc/bluehberger_zainziger/Start.html   | 261 +++++++++++++
+ .../doc/Javadoc/bluehberger_zainziger/Table.html   | 408 +++++++++++++++++++++
+ .../Javadoc/bluehberger_zainziger/Zeichnen.html    | 290 +++++++++++++++
+ .../class-use/JDBCController.html                  | 142 +++++++
+ .../bluehberger_zainziger/class-use/Start.html     | 142 +++++++
+ .../bluehberger_zainziger/class-use/Table.html     | 189 ++++++++++
+ .../bluehberger_zainziger/class-use/Zeichnen.html  | 142 +++++++
+ .../bluehberger_zainziger/package-frame.html       |  38 ++
+ .../bluehberger_zainziger/package-summary.html     | 167 +++++++++
+ .../bluehberger_zainziger/package-tree.html        | 148 ++++++++
+ .../Javadoc/bluehberger_zainziger/package-use.html | 155 ++++++++
+ Rueckwaertssalto/doc/Javadoc/constant-values.html  | 144 ++++++++
+ Rueckwaertssalto/doc/Javadoc/deprecated-list.html  | 144 ++++++++
+ Rueckwaertssalto/doc/Javadoc/help-doc.html         | 215 +++++++++++
+ .../doc/Javadoc/index-files/index-1.html           | 140 +++++++
+ .../doc/Javadoc/index-files/index-2.html           | 158 ++++++++
+ .../doc/Javadoc/index-files/index-3.html           | 143 ++++++++
+ .../doc/Javadoc/index-files/index-4.html           | 146 ++++++++
+ .../doc/Javadoc/index-files/index-5.html           | 155 ++++++++
+ .../doc/Javadoc/index-files/index-6.html           | 143 ++++++++
+ .../doc/Javadoc/index-files/index-7.html           | 143 ++++++++
+ .../doc/Javadoc/index-files/index-8.html           | 147 ++++++++
+ Rueckwaertssalto/doc/Javadoc/index.html            |  70 ++++
+ Rueckwaertssalto/doc/Javadoc/overview-tree.html    | 150 ++++++++
+ Rueckwaertssalto/doc/Javadoc/package-list          |   1 +
+ Rueckwaertssalto/doc/Javadoc/resources/inherit.gif | Bin 0 -> 57 bytes
+ Rueckwaertssalto/doc/Javadoc/stylesheet.css        |  29 ++
+ .../src/bluehberger_zainziger/Start.java           |  11 +-
+ ...inger_AU05-R\303\274ckw\303\244rtssalto_v2.jar" | Bin 0 -> 966768 bytes
+ 32 files changed, 4411 insertions(+), 5 deletions(-)
+
+commit c3ca00d55802bc395a018b4f76dd2215fdd3bea2
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Tue Feb 17 13:16:42 2015 +0100
+
+    Protokoll v2
+    
+    Protokoll v2 hinzugefügt
+
+ ...ger_zainzinger_R\303\274ckw\303\244rtssalto_v2.pdf" | Bin 0 -> 440182 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 93963e28e66036452c97cb9ff719e6aaceed824b
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Tue Feb 17 12:54:29 2015 +0100
+
+    Testordner und Docordner
+    
+    Im Testordner sind die vom Programm erstellten Files.
+    Im Dockender befindet sich ein UML zum Programm.
+
+ Rueckwaertssalto/doc/UML_Rueckwaertssalto.png | Bin 0 -> 59195 bytes
+ Rueckwaertssalto/rm.txt                       |  10 ---
+ Rueckwaertssalto/test/EER.png                 | Bin 0 -> 239387 bytes
+ Rueckwaertssalto/test/rm.txt                  |  10 +++
+ Rueckwaertssalto/test/tables.dot              |  98 ++++++++++++++++++++++++++
+ 5 files changed, 108 insertions(+), 10 deletions(-)
+
+commit c8e4ee5b71e26074261719b25410f10e1c51d467
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Tue Feb 17 12:52:27 2015 +0100
+
+    Zeichnen
+    
+    makeDotFile wurde erweitert, Nun kann somit das Diagramm gezeichnet
+    werden.
+    Realisiert wird:
+    Tabellenname
+    Attribute
+    PK
+    FK
+
+ .../src/bluehberger_zainziger/JDBCController.java  |  2 +-
+ .../src/bluehberger_zainziger/Start.java           |  5 +++-
+ .../src/bluehberger_zainziger/Table.java           |  2 +-
+ .../src/bluehberger_zainziger/Zeichnen.java        | 32 +++++++++++++++++++---
+ 4 files changed, 34 insertions(+), 7 deletions(-)
+
+commit aa45c361ad0c49134bb28d2b2b815e711f9f5eaf
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Mon Feb 16 23:15:04 2015 +0100
+
+    Zeichnen Klasse Grundgerüst
+    
+    Zeichnen Klasse erstellt und mit den Grundmethoden gefüllt.
+    Die Methode makeDotFile muss noch fertiggestellt werden.
+
+ .../src/bluehberger_zainziger/JDBCController.java  |  2 +
+ .../src/bluehberger_zainziger/Zeichnen.java        | 55 ++++++++++++++++++++++
+ 2 files changed, 57 insertions(+)
+
+commit 19ea3499b0873618cba07ce9ce17e82767f216ed
+Author: Lukas Z <lzainzinger@student.tgm.ac.at>
+Date:   Mon Feb 16 20:23:15 2015 +0100
+
+    Update in Arbeit 1
+    
+    Angeschrieben welcher Punkt gerade von wem bearbeitet wird.
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 127891e788b19059a699c56484c5d2a94a7cb8a6
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Mon Feb 16 11:02:55 2015 +0100
+
+    RM File
+    
+    Das RM wird nun als .txt File ausgegeben.
+
+ Rueckwaertssalto/rm.txt                            | 10 +++++++
+ .../src/bluehberger_zainziger/JDBCController.java  | 31 +++++++++++++++-------
+ .../src/bluehberger_zainziger/Start.java           | 14 +++++++++-
+ 3 files changed, 44 insertions(+), 11 deletions(-)
+
+commit ed10d3ffe5eec0e059d2e196b1f3df0281d9f7d8
+Author: Lukas Z <lzainzinger@student.tgm.ac.at>
+Date:   Sun Feb 15 16:26:07 2015 +0100
+
+    Update1
+    
+    Fertiggestellte Funktionen mit (FIN) makiert
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit d30fa6161378584b16c3fbe04eeda69a55b84d0d
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Sun Feb 15 16:22:33 2015 +0100
+
+    PK und FK anzeige im RM
+    
+    PK und FK werden nun im RM angezeigt. Bei FK wird aber nicht die
+    verknüpfte Tabelle angezeigt!
+
+ .../src/bluehberger_zainziger/JDBCController.java  | 27 ++++++++++++++--------
+ .../src/bluehberger_zainziger/Start.java           |  8 +++----
+ 2 files changed, 22 insertions(+), 13 deletions(-)
+
+commit 5cb40e559a5d90ba66ad4e54f0a4f8fac28254b4
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Tue Jan 20 10:56:07 2015 +0100
+
+    Klassenkommentar hinzugefügt bei Start.
+
+ Rueckwaertssalto/src/bluehberger_zainziger/Start.java | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 882615238a488330e01e5139a6985a3ad6cf23ef
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Tue Jan 20 10:53:32 2015 +0100
+
+    Start Class zum Starten und erstellen des RMs
+
+ .../src/bluehberger_zainziger/JDBCController.java  | 24 ++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+commit a5a288a76725cfa35e2045e6514b0f37e044c0ef
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Mon Jan 19 20:51:59 2015 +0100
+
+    Main Methode (Start) mit RM erstellung.
+    PK und FK wird noch nciht erkannt!
+
+ Rueckwaertssalto/.classpath                        |  8 ++++
+ .../.settings/org.eclipse.jdt.core.prefs           | 11 +++++
+ .../src/bluehberger_zainziger/Start.java           | 48 ++++++++++++++++++++++
+ 3 files changed, 67 insertions(+)
+
+commit 868e766bcbb65dee3069cbfd5427b9409090f879
+Author: Lukas Z <lzainzinger@student.tgm.ac.at>
+Date:   Wed Jan 14 10:54:43 2015 +0100
+
+    Update Readme
+    
+    Layout verbessert
+
+ README.md | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+commit 6a7fc255ed781eda38c8248e35ba61367951b63d
+Author: Lukas Z <lzainzinger@student.tgm.ac.at>
+Date:   Wed Jan 14 10:52:08 2015 +0100
+
+    Create README mit Aufgabenstellung
+    
+    Aufgabenstellung vereinfacht Dargestellt
+
+ README.md | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+commit 4e28200cd748f403bad3ce30d96ac95c56099ac3
+Author: Lukas Zainzinger <lzainzinger@student.tgm.ac.at>
+Date:   Wed Jan 14 10:37:12 2015 +0100
+
+    Verbindung und Tabel auslesen
+
+ Rueckwaertssalto/.gitignore                        |  1 +
+ Rueckwaertssalto/.project                          | 17 ++++
+ .../src/bluehberger_zainziger/JDBCController.java  | 97 ++++++++++++++++++++++
+ .../src/bluehberger_zainziger/Table.java           | 73 ++++++++++++++++
+ 4 files changed, 188 insertions(+)
